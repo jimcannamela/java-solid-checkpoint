@@ -71,8 +71,8 @@ public class Event extends ICalendarItem {
         return String.format(
                 "%s at %s (ends at %s)",
                 getTitle(),
-                getStartsAt().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)),
-                getEndsAt().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM))
+                getStartsAt().format(DATE_FORMATTER),
+                getEndsAt().format(DATE_FORMATTER)
         );
     }
 }

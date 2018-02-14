@@ -23,11 +23,11 @@ public class ScheduleFormatterTest {
         calendar.addSchedulable(new Reminder("Reminder 1", LocalDateTime.of(2017, 2, 3, 4, 4)));
 
         String expected = "2017-01-03\n" +
-                " - Event 1 at Jan 3, 2017 4:04:00 AM (ends at Jan 3, 2017 5:04:00 AM)\n" +
-                " - Event 2 at Jan 3, 2017 5:05:00 AM (ends at Jan 3, 2017 6:05:00 AM)\n" +
+                " - Event 1 at Jan 3, 2017 4:04 AM (ends at Jan 3, 2017 5:04 AM)\n" +
+                " - Event 2 at Jan 3, 2017 5:05 AM (ends at Jan 3, 2017 6:05 AM)\n" +
                 "\n" +
                 "2017-02-03\n" +
-                " - Reminder 1 at Feb 3, 2017 4:04:00 AM (incomplete)\n\n";
+                " - Reminder 1 at Feb 3, 2017 4:04 AM (incomplete)\n\n";
 
         ScheduleFormatter formatter = new ScheduleFormatter();
         assertEquals(expected, formatter.format(calendar));

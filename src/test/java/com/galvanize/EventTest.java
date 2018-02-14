@@ -38,7 +38,7 @@ public class EventTest {
                 LocalDateTime.of(2028, 6, 7, 8, 9),
                 twoHours);
 
-        assertEquals("My birthday party at Jun 7, 2028 8:09:00 AM (ends at Jun 7, 2028 10:09:00 AM)", event.toString());
+        assertEquals("My birthday party at Jun 7, 2028 8:09 AM (ends at Jun 7, 2028 10:09 AM)", event.toString());
     }
 
 }

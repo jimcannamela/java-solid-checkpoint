@@ -34,14 +34,14 @@ public class ReminderTest {
                 LocalDateTime.of(2028, 6, 7, 6, 9));
 
         assertEquals(
-                "Buy birthday hats at Jun 7, 2028 6:09:00 AM (incomplete)",
+                "Buy birthday hats at Jun 7, 2028 6:09 AM (incomplete)",
                 reminder.toString()
         );
 
         reminder.markComplete();
 
         assertEquals(
-                "Buy birthday hats at Jun 7, 2028 6:09:00 AM (complete)",
+                "Buy birthday hats at Jun 7, 2028 6:09 AM (complete)",
                 reminder.toString()
         );
     }

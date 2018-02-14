@@ -62,7 +62,7 @@ public class Reminder extends ICalendarItem {
         return String.format(
                 "%s at %s (%s)",
                 getDescription(),
-                getRemindsAt().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)),
+                getRemindsAt().format(DATE_FORMATTER),
                 isComplete() ? "complete" : "incomplete"
         );
     }
