@@ -4,16 +4,14 @@ import com.galvanize.util.ClassProxy;
 import com.galvanize.util.InstanceProxy;
 import com.galvanize.util.MethodBuilder;
 import com.galvanize.util.ReflectionUtils;
-import com.google.common.collect.ImmutableList;
-import com.google.common.reflect.Invokable;
-import com.google.common.reflect.Parameter;
-import com.google.common.reflect.TypeToken;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.opentest4j.AssertionFailedError;
 
+import java.lang.reflect.Executable;
 import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
@@ -48,15 +46,15 @@ public class OpenClosedTest {
 
     @Test
     @DisplayName("Calendar should be open for extension")
-    public void aTest() throws Exception {
+    public void aTest() {
 
         ClassProxy _Calendar = new ClassProxy(CALENDAR_CLASS_NAME);
 
         _Calendar.ensureMethod(method -> method.named(ADD_SCHEDULABLE_METHOD_NAME).withParameterCount(1));
-        Invokable addSchedulableMethod = _Calendar.getVerifiedMethods().getFirst(ADD_SCHEDULABLE_METHOD_NAME).get();
-        ImmutableList<Parameter> parameters = addSchedulableMethod.getParameters();
-        TypeToken<?> schedulable = parameters.get(0).getType();
-        if (schedulable.getRawType() == Object.class) {
+        Executable addSchedulableMethod = _Calendar.getVerifiedMethods().getFirst(ADD_SCHEDULABLE_METHOD_NAME).get();
+        Parameter[] parameters = addSchedulableMethod.getParameters();
+        Class<?> schedulable = parameters[0].getType();
+        if (schedulable == Object.class) {
             failFormat("Expected `%s.%s` to take an interface as a parameter but it is still `Object`",
                     _Calendar.getDelegate().getSimpleName(),
                     ADD_SCHEDULABLE_METHOD_NAME);
