@@ -101,7 +101,7 @@ public class InterfaceSegregationTest {
         }).findFirst().orElse(null);
 
         if (displayableInterface == null) {
-            fail("Expected `ICalendar` to implement an interface with 1 method: `getTextToDisplay`");
+            fail("Expected `ICalendarItem` to implement an interface with 1 method: `getTextToDisplay`");
         }
 
         ClassProxy.of(completableInterface).ensureImplements(displayableInterface);
