@@ -8,17 +8,15 @@ public class Todo extends ICalendarItem {
     private String description;
     private TodoStatus status = TodoStatus.INCOMPLETE;
     private LocalDateTime completedAt;
-    private String ownerFirstName;
-    private String ownerLastName;
-    private String ownerEmail;
-    private String ownerJobTitle;
 
-    public Todo(String text, String ownerFirstName, String ownerLastName, String ownerEmail, String ownerJobTitle) {
+    private Owner owner;
+
+    public Owner getOwner() {
+        return owner;
+    }
+    public Todo(String text, Owner owner) {
         this.text = text;
-        this.ownerFirstName = ownerFirstName;
-        this.ownerLastName = ownerLastName;
-        this.ownerEmail = ownerEmail;
-        this.ownerJobTitle = ownerJobTitle;
+        this.owner = owner;
     }
 
     public String getText() {
@@ -59,22 +57,6 @@ public class Todo extends ICalendarItem {
         return completedAt;
     }
 
-    public String getOwnerFirstName() {
-        return ownerFirstName;
-    }
-
-    public String getOwnerLastName() {
-        return ownerLastName;
-    }
-
-    public String getOwnerJobTitle() {
-        return ownerJobTitle;
-    }
-
-    public String getOwnerEmail() {
-        return ownerEmail;
-    }
-
     @Override
     public String iCalendar() {
         if (text == null) throw new IllegalArgumentException("You must specify the text");
@@ -93,10 +75,10 @@ public class Todo extends ICalendarItem {
         return String.format(
                 "%s <%s %s> %s (%s): %s",
                 getText(),
-                getOwnerFirstName(),
-                getOwnerLastName(),
-                getOwnerEmail(),
-                getOwnerJobTitle(),
+                owner.getFirstName(),
+                owner.getLastName(),
+                owner.getEmail(),
+                owner.getJobTitle(),
                 status == TodoStatus.INCOMPLETE ? "incomplete" : "complete"
         );
     }

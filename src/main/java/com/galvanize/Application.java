@@ -19,7 +19,8 @@ public class Application {
         Event event3 = new Event("Event 2", LocalDateTime.of(2017, 1, 12, 5, 5), defaultDuration);
         Reminder reminder1 = new Reminder("Reminder 1", LocalDateTime.of(2017, 3, 17, 4, 4));
         reminder1.markComplete();
-        Todo todo1 = new Todo("Do stuff", "Alex", "Hamilton", "alex@example.com", "Treasurer");
+        Owner owner = new Owner("Alex", "Hamilton", "alex@example.com", "Treasurer");
+        Todo todo1 = new Todo("Do stuff", owner);
 
         // this shows how the calendar and calendar formatters work
         MonthlyFormatter monthlyFormatter = new MonthlyFormatter();
