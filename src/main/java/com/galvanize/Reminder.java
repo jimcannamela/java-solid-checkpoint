@@ -2,7 +2,7 @@ package com.galvanize;
 
 import java.time.LocalDateTime;
 
-public class Reminder extends ICalendarItem implements Scheduable {
+public class Reminder extends ICalendarItem implements Scheduable, Completable {
 
     private final String description;
     private final LocalDateTime remindsAt;
@@ -43,7 +43,7 @@ public class Reminder extends ICalendarItem implements Scheduable {
 
     @Override
     public String iCalendar() {
-        if (description == null) return "";
+        if (description == null) throw new IllegalArgumentException("You must specify a description");
 
         return new StringBuilder()
                 .append("BEGIN:VALARM\n")

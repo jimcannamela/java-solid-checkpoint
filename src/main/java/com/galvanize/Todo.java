@@ -2,7 +2,7 @@ package com.galvanize;
 
 import java.time.LocalDateTime;
 
-public class Todo extends ICalendarItem {
+public class Todo extends ICalendarItem implements Completable{
 
     private final String text;
     private String description;

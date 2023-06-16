@@ -3,7 +3,7 @@ package com.galvanize;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-public class Event extends ICalendarItem implements Scheduable{
+public class Event extends ICalendarItem implements Scheduable {
 
     private final String title;
     private final LocalDateTime startsAt;
@@ -36,23 +36,8 @@ public class Event extends ICalendarItem implements Scheduable{
     }
 
     @Override
-    public void markComplete() {
-
-    }
-
-    @Override
-    public void markIncomplete() {
-
-    }
-
-    @Override
-    public boolean isComplete() {
-        return false;
-    }
-
-    @Override
     public String iCalendar() {
-        if (title == null) return "";
+        if (title == null) throw new IllegalArgumentException("You must specify a title for this event");
 
         return new StringBuilder()
                 .append("BEGIN:VEVENT\n")

@@ -1,8 +1,6 @@
 package com.galvanize;
 
-public interface Completable {
-
-    String getTextToDisplay();
+public interface Completable extends Displayable {
 
     void markComplete();
 

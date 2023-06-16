@@ -21,21 +21,8 @@ public class Holiday extends ICalendarItem implements Scheduable {
 	}
 
 	@Override
-	public void markComplete() {
-
-	}
-
-	@Override
-	public void markIncomplete() {
-
-	}
-
-	@Override
-	public boolean isComplete() {return false;}
-
-	@Override
 	public String iCalendar() {
-		if (title == null) return "";
+		if (title == null) throw new IllegalArgumentException("You must specify a title for this holiday");
 
 		return new StringBuilder()
 				.append("BEGIN:VEVENT\n")
