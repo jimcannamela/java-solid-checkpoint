@@ -21,6 +21,7 @@ public class Application {
         reminder1.markComplete();
         Owner owner = new Owner("Alex", "Hamilton", "alex@example.com", "Treasurer");
         Todo todo1 = new Todo("Do stuff", owner);
+//        Holiday holiday = new Holiday("Valentines Day", LocalDateTime.of( 2017,2,14,0,0) );
 
         // this shows how the calendar and calendar formatters work
         MonthlyFormatter monthlyFormatter = new MonthlyFormatter();
@@ -31,6 +32,7 @@ public class Application {
         calendar.addSchedulable(event2);
         calendar.addSchedulable(reminder1);
         calendar.addSchedulable(event3);
+//        calendar.addSchedulable(holiday);
 
         System.out.println("------------------\nCalendar View:\n------------------\n");
         System.out.println(monthlyFormatter.format(calendar));

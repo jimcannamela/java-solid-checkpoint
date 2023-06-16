@@ -11,9 +11,9 @@ import static java.util.stream.Collectors.toList;
 
 public class Calendar {
 
-    private final List<Object> schedulables = new ArrayList<>();
+    private final List<Scheduable> schedulables = new ArrayList<>();
 
-    public void addSchedulable(Object schedulable) {
+    public void addSchedulable(Scheduable schedulable) {
         schedulables.add(schedulable);
         schedulables.sort((a, b) -> {
             LocalDateTime dateA = getLocalDateTime(a);
@@ -22,7 +22,7 @@ public class Calendar {
         });
     }
 
-    public List<Object> items() {
+    public List<Scheduable> items() {
         return schedulables;
     }
 
@@ -44,13 +44,13 @@ public class Calendar {
 
     public LocalDateTime getFirstDateTime() {
         if (schedulables.isEmpty()) return null;
-        Object item = schedulables.get(0);
+        Scheduable item = schedulables.get(0);
         return getLocalDateTime(item);
     }
 
     public LocalDateTime getLastDateTime() {
         if (schedulables.isEmpty()) return null;
-        Object item = schedulables.size() == 1 ? schedulables.get(0) : schedulables.get(schedulables.size() - 1);
+        Scheduable item = schedulables.size() == 1 ? schedulables.get(0) : schedulables.get(schedulables.size() - 1);
         return getLocalDateTime(item);
     }
 
@@ -59,13 +59,8 @@ public class Calendar {
         return formatter.format(this);
     }
 
-    private LocalDateTime getLocalDateTime(Object item) {
-        if (item instanceof Event) {
-            return ((Event) item).getStartsAt();
-        } else if (item instanceof Reminder) {
-            return ((Reminder) item).getRemindsAt();
-        }
-        return null;
+    private LocalDateTime getLocalDateTime(Scheduable item) {
+        return item.getStartTime();
     }
 
 }

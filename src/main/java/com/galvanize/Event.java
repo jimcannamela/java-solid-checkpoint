@@ -3,7 +3,7 @@ package com.galvanize;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-public class Event extends ICalendarItem {
+public class Event extends ICalendarItem implements Scheduable{
 
     private final String title;
     private final LocalDateTime startsAt;
@@ -23,7 +23,7 @@ public class Event extends ICalendarItem {
         return getTitle();
     }
 
-    public LocalDateTime getStartsAt() {
+    public LocalDateTime getStartTime() {
         return startsAt;
     }
 
@@ -56,7 +56,7 @@ public class Event extends ICalendarItem {
 
         return new StringBuilder()
                 .append("BEGIN:VEVENT\n")
-                .append(String.format("DTSTART:%s\n", getStartsAt()))
+                .append(String.format("DTSTART:%s\n", getStartTime()))
                 .append(String.format("DTEND:%s\n", getEndsAt()))
                 .append(String.format("UID:%s@example.com\n", getUuid()))
                 .append(String.format("DESCRIPTION:%s\n", getTextToDisplay()))
@@ -69,7 +69,7 @@ public class Event extends ICalendarItem {
         return String.format(
                 "%s at %s (ends at %s)",
                 getTitle(),
-                getStartsAt().format(DATE_FORMATTER),
+                getStartTime().format(DATE_FORMATTER),
                 getEndsAt().format(DATE_FORMATTER)
         );
     }

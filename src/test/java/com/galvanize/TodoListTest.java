@@ -16,7 +16,9 @@ public class TodoListTest {
                 "Buy birthday hats",
                 LocalDateTime.of(2028, 6, 7, 6, 9));
 
-        Todo todo = new Todo("Do stuff", "Alex", "Hamilton", "alex@example.com", "Treasurer");
+        Owner owner = new Owner("Alex", "Hamilton", "alex@example.com", "Treasurer");
+
+        Todo todo = new Todo("Do stuff", owner);
 
         TodoList todoList = new TodoList();
 

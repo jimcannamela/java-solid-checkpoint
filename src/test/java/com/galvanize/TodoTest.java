@@ -11,7 +11,9 @@ public class TodoTest {
 
     @Test
     public void testICalendar() {
-        Todo todo = new Todo("Do stuff", "Alex", "Hamilton", "alex@example.com", "Treasurer");
+        Owner owner = new Owner("Alex", "Hamilton", "alex@example.com", "Treasurer");
+
+        Todo todo = new Todo("Do stuff", owner);
 
         String expected = "BEGIN:VTODO\n" +
                 "COMPLETED::null\n" +
@@ -24,7 +26,9 @@ public class TodoTest {
 
     @Test
     public void toStringWorks() {
-        Todo todo = new Todo("Do stuff", "Alex", "Hamilton", "alex@example.com", "Treasurer");
+        Owner owner = new Owner("Alex", "Hamilton", "alex@example.com", "Treasurer");
+
+        Todo todo = new Todo("Do stuff", owner);
 
         assertEquals(
                 "Do stuff <Alex Hamilton> alex@example.com (Treasurer): incomplete",
@@ -41,7 +45,9 @@ public class TodoTest {
 
     @Test
     public void itHasADescription() {
-        Todo todo = new Todo("Do stuff", "Alex", "Hamilton", "alex@example.com", "Treasurer");
+        Owner owner = new Owner("Alex", "Hamilton", "alex@example.com", "Treasurer");
+
+        Todo todo = new Todo("Do stuff", owner);
         todo.setDescription("There's a million things he hasn't done");
 
         assertEquals(
