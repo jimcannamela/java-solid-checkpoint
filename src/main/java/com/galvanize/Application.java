@@ -17,11 +17,10 @@ public class Application {
         Event event1 = new Event("Event 1", LocalDateTime.of(2017, 1, 3, 4, 4), defaultDuration);
         Event event2 = new Event("Event 2", LocalDateTime.of(2017, 1, 3, 5, 5), defaultDuration);
         Event event3 = new Event("Event 2", LocalDateTime.of(2017, 1, 12, 5, 5), defaultDuration);
-        Reminder reminder1 = new Reminder("Reminder 1", LocalDateTime.of(2017, 3, 17, 4, 4));
+        Reminder reminder1 = new Reminder("Reminder 1", LocalDateTime.of(2017, 1, 17, 4, 4));
         reminder1.markComplete();
         Owner owner = new Owner("Alex", "Hamilton", "alex@example.com", "Treasurer");
         Todo todo1 = new Todo("Do stuff", owner);
-//        Holiday holiday = new Holiday("Valentines Day", LocalDateTime.of( 2017,2,14,0,0) );
 
         // this shows how the calendar and calendar formatters work
         MonthlyFormatter monthlyFormatter = new MonthlyFormatter();
@@ -32,7 +31,6 @@ public class Application {
         calendar.addSchedulable(event2);
         calendar.addSchedulable(reminder1);
         calendar.addSchedulable(event3);
-//        calendar.addSchedulable(holiday);
 
         System.out.println("------------------\nCalendar View:\n------------------\n");
         System.out.println(monthlyFormatter.format(calendar));

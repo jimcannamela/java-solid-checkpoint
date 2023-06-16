@@ -1,5 +1,6 @@
 package com.galvanize;
 
+import com.galvanize.formatters.MonthlyFormatter;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
@@ -60,8 +61,8 @@ public class CalendarTest {
                 "19  20  21  22  23  24  25 \n" +
                 "26  27  28  29 \n" +
                 "\n";
-
-        assertEquals(expected, calendar.format());
+        MonthlyFormatter mf = new MonthlyFormatter();
+        assertEquals(expected, calendar.format(mf));
     }
 
 }

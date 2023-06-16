@@ -1,6 +1,8 @@
 package com.galvanize;
 
+import com.galvanize.formatters.Formattable;
 import com.galvanize.formatters.MonthlyFormatter;
+import com.galvanize.formatters.ScheduleFormatter;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -54,9 +56,8 @@ public class Calendar {
         return getLocalDateTime(item);
     }
 
-    public String format() {
-        MonthlyFormatter formatter = new MonthlyFormatter();
-        return formatter.format(this);
+    public String format(Formattable format) {
+        return format.format(this);
     }
 
     private LocalDateTime getLocalDateTime(Scheduable item) {

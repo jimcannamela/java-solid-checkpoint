@@ -14,7 +14,7 @@ import static java.time.temporal.TemporalAdjusters.firstDayOfMonth;
 import static java.time.temporal.TemporalAdjusters.lastDayOfMonth;
 import static java.util.stream.Collectors.*;
 
-public class MonthlyFormatter {
+public class MonthlyFormatter implements Formattable {
 
     public String format(Calendar calendar) {
         if (calendar.getFirstDateTime() == null) return "";

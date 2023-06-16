@@ -2,7 +2,7 @@ package com.galvanize.formatters;
 
 import com.galvanize.Calendar;
 
-public class ScheduleFormatter {
+public class ScheduleFormatter implements Formattable {
 
     public String format(Calendar calendar) {
         StringBuilder builder = new StringBuilder();
